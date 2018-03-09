@@ -63,7 +63,7 @@ namespace TsSoft.Docx.TemplateEngine.Tags
         public override XElement Parse(ITagProcessor parentProcessor, XElement startElement)
         {
             this.ValidateStartTag(startElement, TagName);
-            var endRepeater = TryGetRequiredTag(startElement, EndTagName);
+            var endRepeater = FindEndTag(startElement, TagName, EndTagName);
             var itemsSource = startElement.GetExpression(); 
 
             if (string.IsNullOrEmpty(itemsSource))
